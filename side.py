@@ -36,27 +36,34 @@ while True:
                 if substring in wow:
                     div = True
 
-            #Do the operation
+            #To the operations
             if add == True:
+
+                #This looks for integers in the list and separates them from whatever else there is
                 fin = [int(i) for i in wow.split() if i.isdigit()]
-                print(sum(fin))
+
+                #Takes the two numbers in the new list and does the operation
+                ans = fin[0] + fin[1:]
+                
+                #Then it prints the final answer
+                print(ans)
                 continue
             
             elif sub == True:
                 fin = [int(i) for i in wow.split() if i.isdigit()]
-                ans = fin[0] - sum(fin[1:])
+                ans = fin[0] - fin[1:]
                 print(ans)
                 continue
 
             elif mult == True:
                 fin = [int(i) for i in wow.split() if i.isdigit()]
-                ans = fin[0] * sum(fin[1:])
+                ans = fin[0] * fin[1:]
                 print(ans)
                 continue
 
             elif div == True:
                 fin = [int(i) for i in wow.split() if i.isdigit()]
-                ans = fin[0] / sum(fin[1:])
+                ans = fin[0] / fin[1:]
                 print(ans)
                 continue
             
