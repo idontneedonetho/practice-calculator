@@ -43,7 +43,7 @@ while True:
                 fin = [int(i) for i in wow.split() if i.isdigit()]
 
                 #Takes the two numbers in the new list and does the operation
-                ans = fin[0] + fin[1:]
+                ans = fin[0] + fin[1]
                 
                 #Then it prints the final answer
                 print(ans)
@@ -51,19 +51,19 @@ while True:
             
             elif sub == True:
                 fin = [int(i) for i in wow.split() if i.isdigit()]
-                ans = fin[0] - fin[1:]
+                ans = fin[0] - fin[1]
                 print(ans)
                 continue
 
             elif mult == True:
                 fin = [int(i) for i in wow.split() if i.isdigit()]
-                ans = fin[0] * fin[1:]
+                ans = fin[0] * fin[1]
                 print(ans)
                 continue
 
             elif div == True:
                 fin = [int(i) for i in wow.split() if i.isdigit()]
-                ans = fin[0] / fin[1:]
+                ans = fin[0] / fin[1]
                 print(ans)
                 continue
             
