@@ -1,6 +1,6 @@
 #V2
 #I don't fully under stand "ans = fin[0] * sum(fin[1:])" how this works.
-#I believe that "fin[0] is the first number, then sum(fin[1:]) takes the second number, adds it to it's self? then the whole thing follows the operation.
+#I believe that "fin[0]" is the first number, then "sum(fin[1:])" takes the second number, adds it to it's self? then the whole thing follows the operation.
 while True:
 
     #Have a 'try' set up to catch errors
