@@ -10,6 +10,8 @@ while True:
         sub = False
         mult = False
         div = False
+        avg = False
+        com = False
 
         #Check if the user input anything, if not, then close
         if wow == "":
@@ -35,16 +37,28 @@ while True:
             for substring in sym3:
                 if substring in wow:
                     div = True
+            sym4 = ['~=']
+            for substring in sym4:
+                if substring in wow:
+                    avg = True
+            sym5 = [',']
+            for substring in sym5:
+                if substring in wow:
+                    com = True
 
+            if com == True:
+                print("If you're trying to get an average, do not use commas for seperation")
+                continue
+            
             #To the operations
-            if add == True:
+            elif add == True:
 
                 #This looks for integers in the list and separates them from whatever else there is
                 fin = [int(i) for i in wow.split() if i.isdigit()]
 
                 #Takes the two numbers in the new list and does the operation
                 ans = fin[0] + fin[1]
-                
+
                 #Then it prints the final answer
                 print(ans)
                 continue
@@ -66,10 +80,14 @@ while True:
                 ans = fin[0] / fin[1]
                 print(ans)
                 continue
+
+            elif avg == True:
+                fin = [int(i) for i in wow.split() if i.isdigit()]
+                print(sum(fin)/len(fin))
             
             #If the user input something other than defined, tell them
             else:
-                print("Only: +, -, *, /")
+                print("Only: '+' -> (for addition), '-' -> (for subtraction), '*' -> (for multiplication), '/' -> (for division), '~=' -> (at end of list of numbers for the average, no ',')")
                 continue
 
     #Tell the user they didn't put spaces while inputting their equation
