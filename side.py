@@ -17,14 +17,6 @@ while True:
             break
 
         else:
-            
-            #Move on to seperating the numbers in the user input
-            first = wow[0]
-            second = wow[-1]
-
-            #Check if the user put a second number, if not, then it defualts to 0
-            if wow[-1] == "":
-                second = int(0)
 
             #Check which operation the user put
             sym = ['+']
