@@ -7,6 +7,7 @@ while True:
         #Get my user input and set my vars to false for later
         wow = input("")
         add = sub = mult = div = avg = com = rng = sqr = root = finie = False
+        operations = {'+', '-', '*', '/'}
 
         #Check if the user input anything, if not, then close
         if wow == "":
@@ -26,7 +27,7 @@ while True:
                 #Checks if the value of 'sym' is in the user input
                 if substring in wow:
 
-                    #And if it is, then add will turn true
+                    #And if it is, then 'add' will turn true
                     add = True
 
             sym1 = ['- ']
@@ -72,19 +73,24 @@ while True:
             elif add == True:
 
                 #This splits everything in the string up into a list: "This is a list" -> ['This', 'is', 'a', 'list']
-                fin = wow.split()
+                fin = wow.split(' ')
 
-                #Takes the first and last item in the list and does the operation
-                ans = float(fin[0]) + float(fin[-1])
+                #Takes the new list and removes the operation sign
+                fin = [e for e in fin if e not in operations]
 
-                #Then it prints the final answer
-                print(ans)
+                #Changes the list to be intagers
+                fin = [int(i) for i in fin]
+
+                #Takes list and adds everything together
+                print(sum(fin))
                 continue
             
             #Subtraction
             elif sub == True:
-                fin = wow.split()
-                ans = float(fin[0]) - float(fin[-1])
+                fin = wow.split(' ')
+                fin = [e for e in fin if e not in operations]
+                fin = [int(i) for i in fin]
+                ans = fin[0:] - fin[-1:]
                 print(ans)
                 continue
 
