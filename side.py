@@ -1,11 +1,12 @@
 #V2
+#Set up a while loop so that the program doesn't close when you complete an operaition
 while True:
 
     #Have a 'try' set up to catch errors
     try:
 
         #Get my user input and set my vars to false for later
-        wow = input("")
+        wow = input("").lower()
         add = sub = mult = div = avg = com = rng = sqr = root = finie = False
         operations = {'+', '-', '*', '/'}
 
@@ -13,6 +14,11 @@ while True:
         if wow == "":
             print("Closing...")
             break
+
+        elif wow == "help" or "?":
+            print("'+' (addition), '-' (subtraction), '*' (multiplication), '/' (division), '^' (square), '~='/'#=' (after list of numbers for average/range)")
+            print("To close program, press enter while blank")
+            continue
 
         else:
 
@@ -185,7 +191,7 @@ while True:
                 #fin = 100 ** (-10)
                 #print(fin)
             
-            #If the user input something other than defined, tell them
+            #If the user input something other than defined, tell them what they can do
             else:
                 print("Only: '+' (addition), '-' (subtraction), '*' (multiplication), '/' (division), '^' (square), '~='/'#=' (after list of numbers for average/range)")
                 continue
