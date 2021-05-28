@@ -6,7 +6,7 @@ while True:
 
         #Get my user input and set my vars to false for later
         wow = input("")
-        add = sub = mult = div = avg = com = rng = sqr = root = finie =  False
+        add = sub = mult = div = avg = com = rng = sqr = root = finie = False
 
         #Check if the user input anything, if not, then close
         if wow == "":
@@ -17,13 +17,13 @@ while True:
 
             #Check which operation the user input
 
-            #sets 'sym' as '+'
+            #Sets 'sym' as '+'
             sym = ['+']
 
-            #sets 'substring' as 'sym'
+            #Sees what 'sym' is
             for substring in sym:
 
-                #Checks if the value of 'substring' is in the user input
+                #Checks if the value of 'sym' is in the user input
                 if substring in wow:
 
                     #And if it is, then add will turn true
@@ -67,36 +67,42 @@ while True:
                 continue
 
             #To the operations
+
+            #Addition
             elif add == True:
 
-                #This looks for integers in the list and separates them from whatever else there is
+                #This splits everything in the string up into a list: "This is a list" -> ['This', 'is', 'a', 'list']
                 fin = wow.split()
 
-                #Takes the two numbers in the new list and does the operation
+                #Takes the first and last item in the list and does the operation
                 ans = float(fin[0]) + float(fin[-1])
 
                 #Then it prints the final answer
                 print(ans)
                 continue
             
+            #Subtraction
             elif sub == True:
                 fin = wow.split()
                 ans = float(fin[0]) - float(fin[-1])
                 print(ans)
                 continue
 
+            #Multiplication
             elif mult == True:
                 fin = wow.split()
                 ans = float(fin[0]) * float(fin[-1])
                 print(ans)
                 continue
 
+            #Division
             elif div == True:
                 fin = wow.split()
                 ans = float(fin[0]) / float(fin[-1])
                 print(ans)
                 continue
 
+            #Average
             elif avg == True:
                 fin = wow.split(' ')
                 fin.remove('~=')
@@ -104,24 +110,44 @@ while True:
                 print(sum(fini)/len(fin))
                 continue
 
+            #Range
             elif rng == True:
+
+                #Here we split the string up
                 fin = wow.split(' ')
+
+                #Then we remove the operation as we know what it already is
                 fin.remove('#=')
+
+                #We search the list for intagers and put them in a new list
                 fini = [int(i) for i in fin]
+
+                #Sort that list
                 fini.sort()
+
+                #Check if there's a negative number
                 scab = ['-']
                 for substring in scab:
                     if substring in fin:
                         finie = True
+                
+                #If there...
                 if finie == True:
+
+                    #...is, then we remove the '-'
                     fini.remove('-')
+
+                    #And add the numbers
                     ans = float(fini[-1]) + float(fini[0])
                     print(ans)
                 else:
+
+                    #...isn't, then we just subtract
                     ans = float(fini[-1]) - float(fini[0])
                     print(ans)
                 continue
 
+            #Square
             elif sqr == True:
                 fin = wow.split(' ')
                 fin.remove('^')
