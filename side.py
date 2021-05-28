@@ -6,12 +6,7 @@ while True:
 
         #Get my user input and set my vars to false for later
         wow = input("")
-        add = False
-        sub = False
-        mult = False
-        div = False
-        avg = False
-        com = False
+        add = sub = mult = div = avg = com = rng = sqr = root = finie =  False
 
         #Check if the user input anything, if not, then close
         if wow == "":
@@ -20,12 +15,21 @@ while True:
 
         else:
 
-            #Check which operation the user put
+            #Check which operation the user input
+
+            #sets 'sym' as '+'
             sym = ['+']
+
+            #sets 'substring' as 'sym'
             for substring in sym:
+
+                #Checks if the value of 'substring' is in the user input
                 if substring in wow:
+
+                    #And if it is, then add will turn true
                     add = True
-            sym1 = ['-']
+
+            sym1 = ['- ']
             for substring in sym1:
                 if substring in wow:
                     sub = True
@@ -45,49 +49,101 @@ while True:
             for substring in sym5:
                 if substring in wow:
                     com = True
+            sym6 = ['#=']
+            for substring in sym6:
+                if substring in wow:
+                    rng = True
+            sym7 = ['^']
+            for substring in sym7:
+                if substring in wow:
+                    sqr = True
+            sym8 = ['%=']
+            for substring in sym8:
+                if substring in wow:
+                    root = True
 
             if com == True:
-                print("If you're trying to get an average, do not use commas for seperation")
+                print("If you're trying to get an average or range, do not use commas for seperation, only spaces")
                 continue
-            
+
             #To the operations
             elif add == True:
 
                 #This looks for integers in the list and separates them from whatever else there is
-                fin = [int(i) for i in wow.split() if i.isdigit()]
+                fin = wow.split()
 
                 #Takes the two numbers in the new list and does the operation
-                ans = fin[0] + fin[1]
+                ans = float(fin[0]) + float(fin[-1])
 
                 #Then it prints the final answer
                 print(ans)
                 continue
             
             elif sub == True:
-                fin = [int(i) for i in wow.split() if i.isdigit()]
-                ans = fin[0] - fin[1]
+                fin = wow.split()
+                ans = float(fin[0]) - float(fin[-1])
                 print(ans)
                 continue
 
             elif mult == True:
-                fin = [int(i) for i in wow.split() if i.isdigit()]
-                ans = fin[0] * fin[1]
+                fin = wow.split()
+                ans = float(fin[0]) * float(fin[-1])
                 print(ans)
                 continue
 
             elif div == True:
-                fin = [int(i) for i in wow.split() if i.isdigit()]
-                ans = fin[0] / fin[1]
+                fin = wow.split()
+                ans = float(fin[0]) / float(fin[-1])
                 print(ans)
                 continue
 
             elif avg == True:
-                fin = [int(i) for i in wow.split() if i.isdigit()]
-                print(sum(fin)/len(fin))
+                fin = wow.split(' ')
+                fin.remove('~=')
+                fini = [int(i) for i in wow.split() if i.isdigit()]
+                print(sum(fini)/len(fin))
+                continue
+
+            elif rng == True:
+                fin = wow.split(' ')
+                fin.remove('#=')
+                fini = [int(i) for i in fin]
+                fini.sort()
+                scab = ['-']
+                for substring in scab:
+                    if substring in fin:
+                        finie = True
+                if finie == True:
+                    fini.remove('-')
+                    ans = float(fini[-1]) + float(fini[0])
+                    print(ans)
+                else:
+                    ans = float(fini[-1]) - float(fini[0])
+                    print(ans)
+                continue
+
+            elif sqr == True:
+                fin = wow.split(' ')
+                fin.remove('^')
+                fini = [int(i) for i in fin]
+                ans = fini[0] ** fini[-1]
+                scab = ['-']
+                for substring in scab:
+                    if substring in wow:
+                        finie = True
+                if finie == True:
+                    print(f"-{ans}")
+                else:
+                    print(ans)
+                continue
+
+            #elif root == True:
+                #fin = 100 ** (-10)
+                #print(fin)
             
             #If the user input something other than defined, tell them
             else:
-                print("Only: '+' -> (for addition), '-' -> (for subtraction), '*' -> (for multiplication), '/' -> (for division), '~=' -> (at end of list of numbers for the average, no ',')")
+                print("Only: '+' (addition), '-' (subtraction), '*' (multiplication), '/' (division), '^' (square), '~='/'#=' (after list of numbers for average/range)")
                 continue
 
     #Tell the user they didn't put spaces while inputting their equation
