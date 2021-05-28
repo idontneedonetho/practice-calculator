@@ -73,16 +73,19 @@ while True:
             #Addition
             elif add == True:
 
-                #This splits everything in the string up into a list: "This is a list" -> ['This', 'is', 'a', 'list']
+                #This splits everything in the string up into a list:
+                # "1 + 2 + 3 + 4" -> ['1', '+', '2', '+', '3', '+', '4']
                 fin = wow.split(' ')
 
-                #Takes the new list and removes the operation sign
+                #Takes the new list and removes anything in the 'operations' var that I set up at the start:
+                #['1', '+', '2', '+', '3', '+', '4'] -> ['1', '2', '3', '4']
                 fin = [e for e in fin if e not in operations]
 
-                #Changes the list to be intagers
+                #Changes the strings to be intagers:
+                #['1', '2', '3', '4'] -> [1, 2, 3, 4]
                 fin = [int(i) for i in fin]
 
-                #Takes list and adds everything together
+                #And adds everything together
                 print(sum(fin))
                 continue
             
@@ -163,10 +166,14 @@ while True:
                 fin = wow.split(' ')
                 fin.remove('^')
                 fini = [int(i) for i in fin]
+
+                #'**' is python's built in square function
                 ans = fini[0] ** fini[-1]
+
+                #I need to check if the first number is negative, it will return positive so I need to add a '-' in front
                 scab = ['-']
                 for substring in scab:
-                    if substring in wow:
+                    if substring in wow[0]:
                         finie = True
                 if finie == True:
                     print(f"-{ans}")
