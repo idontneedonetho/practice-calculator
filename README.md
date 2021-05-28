@@ -1,4 +1,4 @@
 # practice-calculator
-Just a practice calculator I made in a night. I might add more functions later.
+Just a practice calculator I'm working on. I'm adding all the features I can without importing anything.
 * Main.py is the first attempt.
 * Side.py is my second.
