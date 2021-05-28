@@ -21,7 +21,7 @@ while True:
             #Sets 'sym' as '+'
             sym = ['+']
 
-            #Sees what 'sym' is
+            #Substring sees what 'sym' is
             for substring in sym:
 
                 #Checks if the value of 'sym' is in the user input
@@ -30,6 +30,7 @@ while True:
                     #And if it is, then 'add' will turn true
                     add = True
 
+            #This is ugly, I'll be looking into making it more compact
             sym1 = ['- ']
             for substring in sym1:
                 if substring in wow:
@@ -90,8 +91,10 @@ while True:
                 fin = wow.split(' ')
                 fin = [e for e in fin if e not in operations]
                 fin = [int(i) for i in fin]
-                ans = fin[0] - fin[-1]
-                print(ans)
+
+                #This separates the fist number, addes the rest together, then takes that answer and subtracts the first number
+                #[5, 2, 1, 3] -> 5, 2 + 1 + 3 -> 5 - 6 = -1
+                print(fin.pop(0) - sum(fin))
                 continue
 
             #Multiplication
@@ -112,7 +115,9 @@ while True:
             elif avg == True:
                 fin = wow.split(' ')
                 fin.remove('~=')
-                fini = [int(i) for i in wow.split() if i.isdigit()]
+                fini = [int(i) for i in fin]
+
+                #Adds up all the numbers, then divides by the amount of numbers. len() returns the amount of items in a list
                 print(sum(fini)/len(fin))
                 continue
 
