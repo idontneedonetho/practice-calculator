@@ -90,7 +90,7 @@ while True:
                 fin = wow.split(' ')
                 fin = [e for e in fin if e not in operations]
                 fin = [int(i) for i in fin]
-                ans = fin[0:] - fin[-1:]
+                ans = fin[0] - fin[-1]
                 print(ans)
                 continue
 
