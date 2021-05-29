@@ -8,7 +8,7 @@ while True:
         #Get my user input and set my vars to false for later
         wow = input("").lower()
         add = sub = mult = div = avg = com = rng = sqr = root = finie = oper = False
-        operations = {'+', '-', '*', '/', '^', '2r', '~=', '#=', ','}
+        operations = {'+', '-', '*', '/', '^', '2r', '~=', '#=', ',', '='}
 
         #Check if the user input anything, if not, then close
         if wow == (""):
@@ -197,6 +197,16 @@ while True:
                     ans = float(fini[0]) ** (1/2)
                     print(ans)
                     continue
+
+            #Equals to
+            sym9 = ['=']
+            for substring in sym9:
+                if substring in wow:
+                    fin = wow.split(' ')
+                    if fin[0] == fin[-1]:
+                        print("True")
+                    else:
+                        print("False")
 
     #Tell the user they put too many spaces somewhere
     except ValueError:
