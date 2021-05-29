@@ -1,4 +1,4 @@
-#V2.5
+#V2.5 until I get divition expanded
 #Set up a while loop so that the program doesn't close when you complete an operation
 while True:
 
@@ -17,7 +17,8 @@ while True:
 
         #Help function
         if wow == ('help'):
-            print("'+' (addition), '-' (subtraction), '*' (multiplication), '/' (division), '^' (square), '2r' (square root), '~='/'#=' (after list of numbers for average/range)")
+            print("'+' (addition), '-' (subtraction), '*' (multiplication), '/' (division), '^' (square), '2r' (square root)")
+            print("'~='/'#=' (after list of numbers for average/range, using spaces for separation)")
             print("To close program, press enter while blank")
             continue
 
@@ -28,14 +29,16 @@ while True:
 
         #If the user input something other than defined, tell them what they can do
         if oper == False:
-            print("Only: '+' (addition), '-' (subtraction), '*' (multiplication), '/' (division), '^' (square), '2r' (square root)")
+            print("Only use: '+' (addition), '-' (subtraction), '*' (multiplication), '/' (division), '^' (square), '2r' (square root)")
             print("'~='/'#=' (after list of numbers for average/range, using spaces for separation)")
             continue
 
+        #Else, move on to this:
         elif oper == True:
 
             #Check which operation the user input
 
+            #Addition
             #Sets 'sym' as '+'
             sym = ['+']
 
@@ -63,6 +66,7 @@ while True:
                     print(sum(fin))
                     continue
 
+            #Subtraction
             sym1 = ['- ']
             for substring in sym1:
                 if substring in wow:
@@ -75,6 +79,7 @@ while True:
                     print(fin.pop(0) - sum(fin))
                     continue
 
+            #Multiplication
             sym2 = ['*']
             for substring in sym2:
                 if substring in wow:
@@ -88,11 +93,12 @@ while True:
                     #Then, we loop for each number in the list
                     for x in fini:
 
-                        #*= is the operation for x = x * '?', where '?' is our input, in this case 'ans'
+                        #'*=' is the operation for "x = x * ?", where '?' is our input, in this case 'ans'
                         ans *= x
                     print(ans)
                     continue
 
+            #Division
             sym3 = ['/']
             for substring in sym3:
                 if substring in wow:
@@ -102,6 +108,7 @@ while True:
                     print(fin[0] / fin[-1])
                     continue
 
+            #Average
             sym4 = ['~=']
             for substring in sym4:
                 if substring in wow:
@@ -113,12 +120,14 @@ while True:
                     print(sum(fini)/len(fin))
                     continue
 
+            #Comma for error
             sym5 = [',']
             for substring in sym5:
                 if substring in wow:
                     print("If you're trying to get an average or range, do not use commas for seperation, only spaces")
                     continue
 
+            #Range
             sym6 = ['#=']
             for substring in sym6:
                 if substring in wow:
@@ -129,7 +138,7 @@ while True:
                     #Then we remove the operation as we know what it already is
                     fin.remove('#=')
 
-                    #We search the list for intagers and put them in a new list
+                    #We search the list for numbers and put them in a new list
                     fini = [float(i) for i in fin]
 
                     #Sort that list
@@ -152,6 +161,7 @@ while True:
                             print(float(fini[-1]) - float(fini[0]))
                             continue
 
+            #Exponent
             sym7 = ['^']
             for substring in sym7:
                 if substring in wow:
@@ -159,7 +169,7 @@ while True:
                     fin.remove('^')
                     fini = [float(i) for i in fin]
 
-                    #'**' is python's built in square function
+                    #'**' is python's built in exponent function
                     ans = fini[0] ** fini[-1]
 
                     #I need to check if the first number is negative
@@ -174,6 +184,7 @@ while True:
                             print(ans)
                             continue
 
+            #Square Root
             sym8 = ['2r']
             for substring in sym8:
                 if substring in wow:
@@ -184,7 +195,7 @@ while True:
                     print(ans)
                     continue
 
-    #Tell the user they put a space after inputting their equation
+    #Tell the user they put too many spaces somewhere
     except ValueError:
-        print("Make sure not to have any spaces after your last input")
+        print("Error: you put too many spaces somewhere")
         continue
