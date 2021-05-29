@@ -61,9 +61,10 @@ while True:
                     #Changes the strings to be intagers:
                     #['1', '2', '3', '4'] -> [1, 2, 3, 4]
                     fin = [float(i) for i in fin]
+                    ans = float(sum(fin))
 
                     #And adds everything together
-                    print(sum(fin))
+                    print("= %s" % ans)
                     continue
 
             #Subtraction
@@ -76,7 +77,8 @@ while True:
 
                     #This separates the fist number, addes the rest together, then takes that answer and subtracts the first number
                     #[5, 2, 1, 3] -> 5, 2 + 1 + 3 -> 5 - 6 = -1
-                    print(fin.pop(0) - sum(fin))
+                    ans = (fin.pop(0) - sum(fin))
+                    print("= %s" % ans)
                     continue
 
             #Multiplication
@@ -95,7 +97,7 @@ while True:
 
                         #'*=' is the operation for "x = x * ?", where '?' is our input, in this case 'ans'
                         ans *= x
-                    print(ans)
+                    print("= %s" % ans)
                     continue
 
             #Division
@@ -112,7 +114,8 @@ while True:
                         ans *= x
                     
                     #Then divids that answer by the first number in the list, just like with subtraction
-                    print(fin[0] / ans)
+                    final = (fin[0] / ans)
+                    print("= %s" % final)
                     continue
 
             #Average
@@ -124,7 +127,8 @@ while True:
                     fini = [float(i) for i in fin]
 
                     #Adds up all the numbers, then divides by the amount of numbers. len() returns the amount of items in a list
-                    print(sum(fini)/len(fin))
+                    ans = (sum(fini)/len(fin))
+                    print("= %s" % ans)
                     continue
 
             #Comma for error
@@ -160,12 +164,14 @@ while True:
                             fini.remove('-')
 
                             #And add the numbers
-                            print(float(fini[-1]) + float(fini[0]))
+                            ans = (float(fini[-1]) + float(fini[0]))
+                            print("= %s" % ans)
                             continue
                         else:
 
                             #If there isn't, we just subtract
-                            print(float(fini[-1]) - float(fini[0]))
+                            ans = (float(fini[-1]) - float(fini[0]))
+                            print("= %s" % ans)
                             continue
 
             #Exponent
@@ -179,16 +185,16 @@ while True:
                     #'**' is python's built in exponent function
                     ans = fini[0] ** fini[-1]
 
-                    #I need to check if the first number is negative
+                    #I need to check if the first number is negative and the exponent is '10'
                     scab = ['-']
                     for substring in scab:
-                        if substring in wow[0]:
+                        if substring in wow[0] and fini[-1] == (10):
                                         
-                            #If it is, we add a '-' in front of the answer to make it "negative"
-                            print(f"-{ans}")
+                            #If they are, we add a '-' in front of the answer to make it "negative"
+                            print("= -%s" % ans)
                             continue
                         else:
-                            print(ans)
+                            print("= %s" % ans)
                             continue
 
             #Square Root
@@ -199,7 +205,7 @@ while True:
                     fin.remove('2r')
                     fini = [float(i) for i in fin]
                     ans = float(fini[0]) ** (1/2)
-                    print(ans)
+                    print("= %s" % ans)
                     continue
 
             #Equals to
