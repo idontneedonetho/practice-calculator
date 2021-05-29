@@ -1,5 +1,5 @@
 #V2
-#Set up a while loop so that the program doesn't close when you complete an operaition
+#Set up a while loop so that the program doesn't close when you complete an operation
 while True:
 
     #Have a 'try' set up to catch errors
@@ -37,7 +37,7 @@ while True:
                     #And if it is, then 'add' will turn true
                     add = True
 
-            #This is ugly, I'll be looking into making it more compact
+            #This is ugly, I'll be looking into making it more compact, if this gets done, it'll be moved to 'V3'
             sym1 = ['- ']
             for substring in sym1:
                 if substring in wow:
@@ -110,15 +110,26 @@ while True:
             #Multiplication
             elif mult == True:
                 fin = wow.split()
-                ans = float(fin[0]) * float(fin[-1])
+                fin = [g for g in fin if g not in operations]
+                fini = [int(i) for i in fin]
+
+                #Here we create a new var
+                ans = 1
+
+                #Then, we loop for each number in the list
+                for x in fini:
+
+                    #*= is the operation for x = x * '?', where '?' is our input, in this case 'ans'
+                    ans *= x
                 print(ans)
                 continue
 
             #Division
             elif div == True:
                 fin = wow.split()
-                ans = float(fin[0]) / float(fin[-1])
-                print(ans)
+                fin = [e for e in fin if e not in operations]
+                fin = [int(i) for i in fin]
+                print(fin[0] / fin[-1])
                 continue
 
             #Average
@@ -152,10 +163,9 @@ while True:
                     if substring in fin:
                         finie = True
                 
-                #If there...
                 if finie == True:
 
-                    #...is, then we remove the '-'
+                    #If there is, we remove the '-'
                     fini.remove('-')
 
                     #And add the numbers
@@ -163,7 +173,7 @@ while True:
                     print(ans)
                 else:
 
-                    #...isn't, then we just subtract
+                    #If there isn't, we just subtract
                     ans = float(fini[-1]) - float(fini[0])
                     print(ans)
                 continue
@@ -177,11 +187,13 @@ while True:
                 #'**' is python's built in square function
                 ans = fini[0] ** fini[-1]
 
-                #I need to check if the first number is negative, it will return positive so I need to add a '-' in front
+                #I need to check if the first number is negative
                 scab = ['-']
                 for substring in scab:
                     if substring in wow[0]:
                         finie = True
+                
+                #If it is, we add a '-' in front of the answer to make it "negative"
                 if finie == True:
                     print(f"-{ans}")
                 else:
@@ -195,6 +207,7 @@ while True:
                 fini = [int(i) for i in fin]
                 ans = float(fini[0]) ** (1/2)
                 print(ans)
+                continue
             
             #If the user input something other than defined, tell them what they can do
             else:
