@@ -5,7 +5,7 @@ while True:
     #Have a 'try' set up to catch errors
     try:
 
-        #Get my user input and set my vars to false for later
+        #Get user input and set vars to false for later
         wow = input("").lower()
         add = sub = mult = div = avg = com = rng = sqr = root = finie = oper = False
         operations = {'+', '-', '*', '/', '^', '2r', '~=', '#=', ',', '='}
@@ -22,7 +22,7 @@ while True:
             print("To close program, press enter while blank")
             continue
 
-        #Check if the user put an operation
+        #Check if the user put an acceptable operation
         for substring in operations:
             if substring in wow:
                 oper = True
@@ -54,7 +54,7 @@ while True:
                     # "1 + 2 + 3 + 4" -> ['1', '+', '2', '+', '3', '+', '4']
                     fin = wow.split(' ')
 
-                    #Takes the new list and removes anything in the 'operations' var that I set up at the start:
+                    #Takes the new list and removes anything in the 'operations' var that was set up at the start:
                     #['1', '+', '2', '+', '3', '+', '4'] -> ['1', '2', '3', '4']
                     fin = [e for e in fin if e not in operations]
 
@@ -89,10 +89,10 @@ while True:
                     fin = [g for g in fin if g not in operations]
                     fini = [float(i) for i in fin]
 
-                    #Here we create a new var
+                    #Create a new var
                     ans = 1
 
-                    #Then, we loop for each number in the list
+                    #Then, loop for each number in the list
                     for x in fini:
 
                         #'*=' is the operation for "x = x * ?", where '?' is our input, in this case 'ans'
@@ -143,13 +143,13 @@ while True:
             for substring in sym6:
                 if substring in wow:
 
-                    #Here we split the string up
+                    #Split the string up
                     fin = wow.split(' ')
 
-                    #Then we remove the operation as we know what it already is
+                    #Remove the operation as it's already known
                     fin.remove('#=')
 
-                    #We search the list for numbers and put them in a new list
+                    #Search the list for numbers and put them in a new list
                     fini = [float(i) for i in fin]
 
                     #Sort that list
@@ -160,7 +160,7 @@ while True:
                     for substring in scab:
                         if substring in fin:
 
-                        #If there is, we remove the '-'
+                            #If there is, remove the '-'
                             fini.remove('-')
 
                             #And add the numbers
@@ -169,7 +169,7 @@ while True:
                             continue
                         else:
 
-                            #If there isn't, we just subtract
+                            #If there isn't, just subtract
                             ans = (float(fini[-1]) - float(fini[0]))
                             print("= %s" % ans)
                             continue
@@ -185,12 +185,12 @@ while True:
                     #'**' is python's built in exponent function
                     ans = fini[0] ** fini[-1]
 
-                    #I need to check if the first number is negative and the exponent is '10'
+                    #Check if the first number is negative and the exponent is '10'
                     scab = ['-']
                     for substring in scab:
                         if substring in wow[0] and fini[-1] == (10):
                                         
-                            #If they are, we add a '-' in front of the answer to make it "negative"
+                            #If they are, add a '-' in front of the answer to make it "negative"
                             print("= -%s" % ans)
                             continue
                         else:
