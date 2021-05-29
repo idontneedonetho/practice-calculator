@@ -1,4 +1,4 @@
-#V2.5 until I get divition expanded
+#V3
 #Set up a while loop so that the program doesn't close when you complete an operation
 while True:
 
