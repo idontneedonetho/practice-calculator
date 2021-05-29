@@ -11,12 +11,13 @@ while True:
         operations = {'+', '-', '*', '/'}
 
         #Check if the user input anything, if not, then close
-        if wow == "":
+        if wow == (""):
             print("Closing...")
             break
 
-        elif wow == "help" or "?":
-            print("'+' (addition), '-' (subtraction), '*' (multiplication), '/' (division), '^' (square), '~='/'#=' (after list of numbers for average/range)")
+        #Help function
+        elif wow == ('help'):
+            print("'+' (addition), '-' (subtraction), '*' (multiplication), '/' (division), '^' (square), '2r' (square root), '~='/'#=' (after list of numbers for average/range)")
             print("To close program, press enter while blank")
             continue
 
@@ -65,7 +66,7 @@ while True:
             for substring in sym7:
                 if substring in wow:
                     sqr = True
-            sym8 = ['%=']
+            sym8 = ['2r']
             for substring in sym8:
                 if substring in wow:
                     root = True
@@ -187,13 +188,18 @@ while True:
                     print(ans)
                 continue
 
-            #elif root == True:
-                #fin = 100 ** (-10)
-                #print(fin)
+            #Square root
+            elif root == True:
+                fin = wow.split(' ')
+                fin.remove('2r')
+                fini = [int(i) for i in fin]
+                ans = float(fini[0]) ** (1/2)
+                print(ans)
             
             #If the user input something other than defined, tell them what they can do
             else:
-                print("Only: '+' (addition), '-' (subtraction), '*' (multiplication), '/' (division), '^' (square), '~='/'#=' (after list of numbers for average/range)")
+                print("Only: '+' (addition), '-' (subtraction), '*' (multiplication), '/' (division), '^' (square), '2r' (square root)")
+                print("'~='/'#=' (after list of numbers for average/range)")
                 continue
 
     #Tell the user they didn't put spaces while inputting their equation
