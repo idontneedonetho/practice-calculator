@@ -161,22 +161,17 @@ while True:
                 scab = ['-']
                 for substring in scab:
                     if substring in fin:
-                        finie = True
-                
-                if finie == True:
 
                     #If there is, we remove the '-'
-                    fini.remove('-')
+                        fini.remove('-')
 
-                    #And add the numbers
-                    ans = float(fini[-1]) + float(fini[0])
-                    print(ans)
-                else:
+                        #And add the numbers
+                        print(float(fini[-1]) + float(fini[0]))
+                    else:
 
-                    #If there isn't, we just subtract
-                    ans = float(fini[-1]) - float(fini[0])
-                    print(ans)
-                continue
+                        #If there isn't, we just subtract
+                        print(float(fini[-1]) - float(fini[0]))
+                    continue
 
             #Square
             elif sqr == True:
@@ -191,14 +186,13 @@ while True:
                 scab = ['-']
                 for substring in scab:
                     if substring in wow[0]:
-                        finie = True
-                
-                #If it is, we add a '-' in front of the answer to make it "negative"
-                if finie == True:
-                    print(f"-{ans}")
-                else:
-                    print(ans)
-                continue
+                        
+                         #If it is, we add a '-' in front of the answer to make it "negative"
+                        print(f"-{ans}")
+                        continue
+                    else:
+                        print(ans)
+                        continue
 
             #Square root
             elif root == True:
