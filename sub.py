@@ -7,7 +7,7 @@ while True:
 
         #Get my user input and set my vars to false for later
         wow = input("").lower()
-        add = sub = mult = div = avg = com = rng = sqr = root = finie = False
+        add = sub = mult = div = avg = com = rng = sqr = root = finie = oper = False
         operations = {'+', '-', '*', '/', '^', '2r', '~=', '#='}
 
         #Check if the user input anything, if not, then close
@@ -15,20 +15,18 @@ while True:
             print("Closing...")
             break
 
-        else:
-            #Check if the user put an operation
-            oper = operations
-            for substring in oper:
-                if substring in wow[1] or wow[-1]:
-                    oper = True
+        #Check if the user put an operation
+        for substring in operations:
+            if substring in wow:
+                oper = True
 
-                #If the user input something other than defined, tell them what they can do
+        #If the user input something other than defined, tell them what they can do
         if oper == False:
             print("Only: '+' (addition), '-' (subtraction), '*' (multiplication), '/' (division), '^' (square), '2r' (square root)")
             print("'~='/'#=' (after list of numbers for average/range)")
             continue
 
-        if oper == True:
+        elif oper == True:
 
             #Help function
             if wow == ('help'):
