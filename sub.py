@@ -8,7 +8,7 @@ while True:
         #Get my user input and set my vars to false for later
         wow = input("").lower()
         add = sub = mult = div = avg = com = rng = sqr = root = finie = oper = False
-        operations = {'+', '-', '*', '/', '^', '2r', '~=', '#='}
+        operations = {'+', '-', '*', '/', '^', '2r', '~=', '#=', ','}
 
         #Check if the user input anything, if not, then close
         if wow == (""):
