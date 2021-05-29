@@ -105,7 +105,10 @@ while True:
                     fin = wow.split()
                     fin = [e for e in fin if e not in operations]
                     fin = [float(i) for i in fin]
-                    print(fin[0] / fin[-1])
+                    ans = 1
+                    for x in fin[1:]:
+                        ans *= x
+                    print(fin[0] / ans)
                     continue
 
             #Average
