@@ -1,4 +1,4 @@
-#V3
+#V2.5
 #Set up a while loop so that the program doesn't close when you complete an operation
 while True:
 
@@ -106,8 +106,12 @@ while True:
                     fin = [e for e in fin if e not in operations]
                     fin = [float(i) for i in fin]
                     ans = 1
+
+                    #This multiplys everything after the first number in the list
                     for x in fin[1:]:
                         ans *= x
+                    
+                    #Then divids that answer by the first number in the list, just like with subtraction
                     print(fin[0] / ans)
                     continue
 
@@ -208,7 +212,8 @@ while True:
                     else:
                         print("False")
 
-    #Tell the user they put too many spaces somewhere
+    #Tell the user they put too many or not enough spaces somewhere
     except ValueError:
-        print("Error: you put too many spaces somewhere")
+        print("Error: you put too many or not enough spaces somewhere")
+        print("Make sure you're using one space inbetween each number/operation")
         continue
