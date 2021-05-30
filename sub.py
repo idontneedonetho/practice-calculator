@@ -209,14 +209,16 @@ while True:
                     continue
 
             #Equals to
-            sym9 = ['=']
+            sym9 = [' = ']
             for substring in sym9:
                 if substring in wow:
                     fin = wow.split(' ')
                     if fin[0] == fin[-1]:
                         print("True")
+                        continue
                     else:
                         print("False")
+                        continue
 
     #Tell the user they put too many or not enough spaces somewhere
     except ValueError:
