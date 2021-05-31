@@ -1,4 +1,4 @@
-#V2.5
+#V2.5 - ~132 Lines of code without spaces and comments
 #Set up a while loop so that the program doesn't close when you complete an operation
 while True:
 
