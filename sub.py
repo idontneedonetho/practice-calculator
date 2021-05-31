@@ -87,13 +87,13 @@ while True:
                 if substring in wow:
                     fin = wow.split()
                     fin = [g for g in fin if g not in operations]
-                    fini = [float(i) for i in fin]
+                    fin = [float(i) for i in fin]
 
                     #Create a new var
                     ans = 1
 
                     #Then, loop for each number in the list
-                    for x in fini:
+                    for x in fin:
 
                         #'*=' is the operation for "x = x * ?", where '?' is our input, in this case 'ans'
                         ans *= x
