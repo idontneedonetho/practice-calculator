@@ -1,10 +1,10 @@
-#V2.75 - 56 lines of code without comments
+#V2.75 - 57 lines of code before comments
 #Set up a while loop so that the program doesn't close when you complete an operation
 while True:
     #Get user input and set vars to false for later
     inp = input("").lower()
     add = sub = mult = div = avg = com = rng = sqr = root = go = False
-    operations = {'+', '-', '*', '/', '^', '2r', '~=', '#=', ',', '='}
+    operations = {'+', '-', '*', '/', '^', '2r', '~=', '-=', ',', '='}
     #Check if the user put an acceptable operation
     for substring in operations:
         if substring in inp:
@@ -15,11 +15,11 @@ while True:
         break
     #Help function
     elif inp == ('help'):
-            print("'+' (addition), '-' (subtraction), '*' (multiplication), '/' (division), '^' (square), '2r' (square root)\n'~='/'#=' (after list of numbers for average/range, using spaces for separation\nTo close program, press enter while blank")
+            print("'+' (addition), '-' (subtraction), '*' (multiplication), '/' (division), '^' (square), '2r' (square root)\n'~='/'-=' (after list of numbers for average/range, using spaces for separation\nTo close program, press enter while blank")
             continue
     #If the user input something other than defined, tell them what they can do
     if go == False:
-        print("Only use: '+' (addition), '-' (subtraction), '*' (multiplication), '/' (division), '^' (square), '2r' (square root)\n'~='/'#=' (after list of numbers for average/range, using spaces for separation)")
+        print("Only use: '+' (addition), '-' (subtraction), '*' (multiplication), '/' (division), '^' (square), '2r' (square root)\n'~='/'-=' (after list of numbers for average/range, using spaces for separation)")
         continue
     #Else, move on to this:
     if go == True:
@@ -32,6 +32,7 @@ while True:
                 #This splits everything in the string up into a list:
                 # "1 + 2 + 3 + 4" -> ['1', '+', '2', '+', '3', '+', '4']
                 splt = inp.split(' ')
+                splt = [i for i in splt if i not in ('' '')]
                 #Takes the new list and removes anything in the 'operations' var that was set up at the start:
                 #['1', '+', '2', '+', '3', '+', '4'] -> ['1', '2', '3', '4']
                 fin = [e for e in splt if e not in operations]
@@ -65,9 +66,9 @@ while True:
                         #Then divids that answer by the first number in the list, just like with subtraction
                         ans = (fin[0] / ans)
                 #Range
-                elif splt[-1] == ('#='):
+                elif splt[-1] == ('-='):
                     #Remove the operation as it's already known
-                    splt.remove('#=')
+                    splt.remove('-=')
                     #Sort the list from above
                     fin.sort()
                     #Then subtract the largest number from the smallest
@@ -92,5 +93,5 @@ while True:
             print("= " + str(calcu()))
             continue
         except ValueError:
-            print("Error")
+            print("Error:\nIf you used commas for seperation, please use spaces instead")
             continue
