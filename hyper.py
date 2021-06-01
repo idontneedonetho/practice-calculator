@@ -1,4 +1,4 @@
-#V2.75 - 57 lines of code before comments
+#V2.75 - 60 lines of code before comments
 #Set up a while loop so that the program doesn't close when you complete an operation
 while True:
     #Get user input and set vars to false for later
@@ -91,6 +91,9 @@ while True:
                 return ans
             #Because we used 'return ans' to set the value of 'calcu()' we can then just print 'calcu()' to get the answer
             print("= " + str(calcu()))
+            continue
+        except ZeroDivisionError:
+            print("You can't divide by 0")
             continue
         except ValueError:
             print("Error:\nIf you used commas for seperation, please use spaces instead")
